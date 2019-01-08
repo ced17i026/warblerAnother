@@ -2,7 +2,9 @@ import {combineReducers} from 'redux';
 import error from "./error";
 import currentUser from './currentUser';
 
-export default rootReducer = combineReducers({
+const rootReducer = combineReducers({
     error,
     currentUser
 })
+
+export default rootReducer;
