@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {configureStore} from "../store";
 import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
+import {Navbar} from "../containers/Navbar";
 const store = configureStore();
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>Hello World</div>
+          <Navbar />
         </Router>
       </Provider>
     );
