@@ -1,0 +1,19 @@
+.HomePage-body{
+    height: 93.2vh;
+    width: 100vw;
+    background-image: url("../../images/warbler-hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.HomePage-content h1{
+    font-size: 5em;
+}
+.container-fluid{
+    padding: 0;
+}
