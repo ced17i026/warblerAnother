@@ -1,7 +1,7 @@
 .HomePage-body{
     height: 93.2vh;
     width: 100vw;
-    background-image: url("../../images/warbler-hero.jpg");
+    background-image: url("../images/warbler-hero.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
