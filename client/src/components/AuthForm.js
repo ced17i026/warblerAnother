@@ -21,6 +21,7 @@ export default class AuthForm extends Component{
         let authType = this.props.signup ? "signup":"signin";
         this.props.onAuth(authType,this.state).then(()=>{
             console.log("Logged In");
+            //here we will redirect user to any other page
         })
     }
     render(){
