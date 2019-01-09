@@ -4,7 +4,7 @@ import {SET_CURRENT_USER} from '../actionsTypes';
 export function setCurrentUser(data){
     return{
         type:SET_CURRENT_USER,
-        data
+        user:data,
     }
 }
 
@@ -12,10 +12,10 @@ export function setCurrentUser(data){
 export function authUser(type,userData){
     return dispatch=>{
         return new Promise((resolve,reject)=>{
-            return apiCall("post",`http://localhost:3000/${type}`,userData)
+            return apiCall("post",`http://localhost:3001/api/user/${type}`,userData)
                     .then(data=>{
                         localStorage.setItem("jwtToken",data.token);
-                        dispatch(setCurrentUser());
+                        dispatch(setCurrentUser(data));
                         resolve();
                     })
         })
