@@ -8,6 +8,12 @@ export function setCurrentUser(data){
     }
 }
 
+export function logout(){
+    return dispatch=>{
+        localStorage.clear();
+        dispatch(setCurrentUser({}));
+    }
+}
 
 export function authUser(type,userData){
     return dispatch=>{

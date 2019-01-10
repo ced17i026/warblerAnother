@@ -3,10 +3,14 @@ import {Link} from 'react-router-dom';
 import Logo from '../images/warbler-logo.png';
 import {connect} from 'react-redux';
 import './Navbar.css';
+import {logout} from "../store/actions/auth";
 
 export class Navbar extends Component{
+    logout = e=>{
+        e.preventDefault();
+        this.props.logout();
+    }
     render(){
-        console.log(this.props);
         return(
             <nav className="navbar navbar-expand">
                 <div className="container-fluid">
@@ -18,6 +22,9 @@ export class Navbar extends Component{
                         <ul className="nav navbar-nav navbar-right">
                             <li>
                                 <Link to='#'> Create New Message</Link>
+                            </li>
+                            <li>
+                                <p onClick={this.logout}>Log Out</p>
                             </li>
                         </ul>
                     ):(
@@ -41,4 +48,4 @@ function mapStateToProps(state){
         currentUser: state.currentUser,
     };
 }
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps,{logout})(Navbar);

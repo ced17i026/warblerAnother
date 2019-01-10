@@ -17,3 +17,8 @@
 .nav li{
   margin-left: 20px;
 }
+
+.navbar>div>ul>li>a:hover{
+  cursor: pointer;
+  color: blue;
+}
