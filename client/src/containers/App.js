@@ -4,7 +4,17 @@ import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import jwtDecode from "jwt-decode";
+import {setCurrentUser,setHeaderToken} from "../store/actions/auth";
 const store = configureStore();
+if(localStorage.jwtToken){
+  setHeaderToken(localStorage.jwtToken);
+  try{
+    store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken))); 
+  }catch(err){
+    setCurrentUser({});
+  }
+}
 
 class App extends Component {
   render() {

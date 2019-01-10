@@ -24,7 +24,7 @@ export class Navbar extends Component{
                                 <Link to='#'> Create New Message</Link>
                             </li>
                             <li>
-                                <p onClick={this.logout}>Log Out</p>
+                                <a onClick={this.logout}>Log Out</a>
                             </li>
                         </ul>
                     ):(
