@@ -26,10 +26,12 @@ export default class AuthForm extends Component{
     }
     render(){
         const {email,username,profileImg} = this.state;
-        const {heading} = this.props;
+        const {heading,error} = this.props;
         return(
             <div className="Form-Body">
                 <h1>{heading}</h1>
+                {error.message && 
+                <div className="alert alert-danger">{error.message}</div>}
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="email">Email:</label>
                     <input

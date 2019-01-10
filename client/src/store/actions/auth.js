@@ -19,7 +19,7 @@ export function authUser(type,userData){
                         dispatch(removeError());
                         resolve();
                     }).catch(err=>{
-                        dispatch(addError(err));
+                        dispatch(addError(err.data.message));
                         reject();
                     })
         })
