@@ -6,20 +6,31 @@ import './Navbar.css';
 
 export class Navbar extends Component{
     render(){
+        console.log(this.props);
         return(
             <nav className="navbar navbar-expand">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         <img src={Logo} alt="Warbler"></img>
                     </Link>
-                    <ul className="nav navbar-nav navbar-right">
-                        <li>
-                            <Link to="/signup"> Sign Up</Link>
-                        </li>
-                        <li>
-                            <Link to="/signin"> Sign In</Link>
-                        </li>
-                    </ul>
+                    {
+                        this.props.currentUser.isAuthenticated ?(
+                        <ul className="nav navbar-nav navbar-right">
+                            <li>
+                                <Link to='#'> Create New Message</Link>
+                            </li>
+                        </ul>
+                    ):(
+                        <ul className="nav navbar-nav navbar-right">
+                            <li>
+                                <Link to="/signup"> Sign Up</Link>
+                            </li>
+                            <li>
+                                <Link to="/signin"> Sign In</Link>
+                            </li>
+                        </ul>
+                        )
+                    }
                 </div>
             </nav> 
         );
@@ -27,7 +38,7 @@ export class Navbar extends Component{
 }
 function mapStateToProps(state){
     return {
-        user: state.currentUser,
-    }
+        currentUser: state.currentUser,
+    };
 }
-export default connect(mapStateToProps,null)(Navbar);
+export default connect(mapStateToProps)(Navbar);
