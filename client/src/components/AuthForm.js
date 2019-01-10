@@ -26,7 +26,10 @@ export default class AuthForm extends Component{
     }
     render(){
         const {email,username,profileImg} = this.state;
-        const {heading,error} = this.props;
+        const {heading,error,history,removeError} = this.props;
+        history.listen(()=>{
+            removeError();
+        })
         return(
             <div className="Form-Body">
                 <h1>{heading}</h1>
