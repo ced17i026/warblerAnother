@@ -7,7 +7,7 @@ export default ({date,text,username,profileImg})=>(
     <div>
         <img src={profileImg||DefaultImg} alt={username} height="100" width="100" className="profileImg"></img>
         <div className="messageArea">
-            <Link to="/" >@{usesrname} &nbsp;</Link>
+            <Link to="/" >@{username} &nbsp;</Link>
             <span className="text-muted">
                 <Moment format="DD MMM YYYY">
                     {date}

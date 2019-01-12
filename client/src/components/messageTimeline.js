@@ -1,7 +1,7 @@
 import React from "react";
 import MessageList from "../containers/MessageList";
 
-export const MessageTimeLine = (props)=>{
+export default (props)=>{
     return (
         <div className="row">
             <MessageList/>

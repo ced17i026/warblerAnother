@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import "./HomePage.css";
+import MessageTimeline from "./messageTimeline";
 const HomePage = (props)=>{
     if(!props.currentUser.isAuthenticated)
     {
@@ -13,7 +14,7 @@ const HomePage = (props)=>{
             </div>
         );
     }else{
-        return (<div><h1>You Made It!</h1></div>);
+        return (<MessageTimeline />);
     }
 };
 

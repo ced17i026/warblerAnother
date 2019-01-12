@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import {renderMessage} from "../components/renderMessage";
 import { connect } from 'react-redux';
 import fetchMessages from "../store/actions/message";
 import jwtDecode from "jwt-decode";
-import renderMessage from "../components/renderMessage";
+import RenderMessages from "../components/renderMessage";
 
 class MessagesList extends Component{
     componentDidMount(){
@@ -11,22 +10,24 @@ class MessagesList extends Component{
     }
     render(){
         const {messages} = this.props;
-        let MessageList = messages.map(m=>{
-            return <renderMessage 
+        let Messages = messages.map(m=>{
+            return (
+                <RenderMessages
                     id={m._id}
                     date={m.createdAt}
                     text={m.text}
                     username={m.user.username}
                     profileImg={m.user.profileImg}
                 />
+            );
         })
         return (
-            {MessageList}
+            Messages
         );
     }
 }
 
 function mapStateToProps(state){
-    return {messages = state.messages,}
+    return {messages : state.messages,}
 }
 export default connect(mapStateToProps,{fetchMessages})(MessagesList);
