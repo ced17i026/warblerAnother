@@ -2,11 +2,12 @@ import React,{Component} from 'react';
 import {renderMessage} from "../components/renderMessage";
 import { connect } from 'react-redux';
 import fetchMessages from "../store/actions/message";
-
+import jwtDecode from "jwt-decode";
+import renderMessage from "../components/renderMessage";
 
 class MessagesList extends Component{
     componentDidMount(){
-        this.props.fetchMessages();
+        this.props.fetchMessages(jwtDecode(localStorage.jwtToken)._id);
     }
     render(){
         const {messages} = this.props;

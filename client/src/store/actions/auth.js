@@ -8,7 +8,7 @@ export function setCurrentUser(data){
     }
 }
 
-export function setHeaderToken(token){
+export function setAuthorizationHeader(token){
     setTokenHeader(token);
 }
 
@@ -16,7 +16,7 @@ export function logout(){
     return dispatch=>{
         localStorage.clear();
         dispatch(setCurrentUser({}));
-        setHeaderToken(false);
+        setAuthorizationHeader(false);
     }
 }
 
@@ -27,7 +27,7 @@ export function authUser(type,userData){
                     .then(data=>{
                         localStorage.setItem("jwtToken",data.token);
                         dispatch(setCurrentUser(data));
-                        setHeaderToken(data.token);
+                        setAuthorizationHeader(data.token);
                         dispatch(removeError());
                         resolve();
                     }).catch(err=>{

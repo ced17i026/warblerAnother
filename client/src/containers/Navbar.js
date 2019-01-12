@@ -24,6 +24,7 @@ export class Navbar extends Component{
                                 <Link to='#'> Create New Message</Link>
                             </li>
                             <li>
+                                {/*eslint-disable-next-line*/}
                                 <a onClick={this.logout}>Log Out</a>
                             </li>
                         </ul>
