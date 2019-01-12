@@ -13,9 +13,9 @@ class MessagesList extends Component{
         let Messages = messages.map(m=>{
             return (
                 <RenderMessages
-                    id={m._id}
+                    key={m._id}
                     date={m.createdAt}
-                    text={m.text}
+                    text={m.body}
                     username={m.user.username}
                     profileImg={m.user.profileImg}
                 />
