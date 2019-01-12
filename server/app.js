@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //all the routes are here 
 app.use("/api/user",auth);
-app.use("/api/user/:id/message",
+app.use("/api/user/message",
 authenticate.isLoggedIn,authenticate.ensureCorrectUser,
 message);
 //if any routes not found then 
