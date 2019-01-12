@@ -20,8 +20,8 @@ export default class AuthForm extends Component{
         e.preventDefault();
         let authType = this.props.signup ? "signup":"signin";
         this.props.onAuth(authType,this.state).then(()=>{
+            //here we will redirect user to home page
             this.props.history.push("/");
-            //here we will redirect user to any other page
         })
     }
     render(){

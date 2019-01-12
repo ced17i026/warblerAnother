@@ -8,10 +8,10 @@ export const Messages = (messages)=>{
     }
 }
 
-export default function(type,id){
+export default function(id){
     return dispatch=>{
         return new Promise((resolve,reject)=>{
-            return apiCall('get',`http://localhost:3001/api/user/${id}/messages`)
+            return apiCall('get',`http://localhost:3001/api/user/${id}/message`)
                     .then((data)=>{
                         dispatch(Messages(data));
                         resolve();

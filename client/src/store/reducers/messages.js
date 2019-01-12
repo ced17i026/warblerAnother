@@ -1,4 +1,3 @@
-import React from 'react';
 import { ADD_MESSAGES, REMOVE_MESSAGES } from '../actionsTypes';
 
 export default (state = {messages:[]},action)=>{
