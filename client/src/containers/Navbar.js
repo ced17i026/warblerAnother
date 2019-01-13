@@ -21,7 +21,7 @@ export class Navbar extends Component{
                         this.props.currentUser.isAuthenticated ?(
                         <ul className="nav navbar-nav navbar-right">
                             <li>
-                                <Link to='#'> Create New Message</Link>
+                                <Link to='/message/new'> Create New Message</Link>
                             </li>
                             <li>
                                 {/*eslint-disable-next-line*/}
