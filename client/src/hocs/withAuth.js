@@ -18,11 +18,9 @@ export default function withAuth(ComponentTobeRendered){
         };
     }
     function mapStateToProps(state){
-        debugger;
         return {
             isAuthenticated: state.currentUser.isAuthenticated,
         }
     }
-    debugger;
     return connect(mapStateToProps)(Authenticate);
 }
