@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import Main from "./Main";
 import jwtDecode from "jwt-decode";
 import {setCurrentUser,setAuthorizationHeader} from "../store/actions/auth";
-const store = configureStore();
+export const store = configureStore();
 if(localStorage.jwtToken){
   setAuthorizationHeader(localStorage.jwtToken);
   try{
