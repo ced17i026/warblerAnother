@@ -8,6 +8,15 @@ export const Messages = (messages)=>{
     }
 }
 
+export function AddNewMessage(message){
+    return (dispatch,getState)=>{
+        let {currentUser} = getState();
+        const id = currentUser.user.id;
+        return apiCall("post",`http://localhost:3001/api/user/${id}/message`,{message})
+            .then(()=>dispatch(Messages))
+            .catch((err)=>dispatch(addError(err)));
+    }
+}
 export default function(id){
     return dispatch=>{
         return new Promise((resolve,reject)=>{
