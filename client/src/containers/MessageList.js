@@ -8,9 +8,13 @@ class MessagesList extends Component{
     componentDidMount(){
         this.props.fetchMessages(jwtDecode(localStorage.jwtToken)._id);
     }
+    handleDelete(id){
+
+    }
     render(){
         const {messages} = this.props;
         let Messages = messages.map(m=>{
+            const Authorize = m.user.username === jwtDecode(localStorage.jwtToken).username;
             return (
                 <RenderMessages
                     key={m._id}
@@ -18,6 +22,8 @@ class MessagesList extends Component{
                     text={m.body}
                     username={m.user.username}
                     profileImg={m.user.profileImg}
+                    handleDelete = {this.handleDelete}
+                    Authorize={Authorize}
                 />
             );
         })
