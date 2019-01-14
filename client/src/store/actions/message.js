@@ -14,8 +14,7 @@ export const AddNewMessage = (message)=>()=>{
         const id = currentUser.user._id;
         return apiCall("post",`http://localhost:3001/api/user/${id}/message`,{message})
             .then((res)=>{
-                console.log(res);
-                store.dispatch(Messages(res))
+                //store.dispatch(Messages(res))
             })
             .catch((err)=>store.dispatch(addError(err)));
     }
