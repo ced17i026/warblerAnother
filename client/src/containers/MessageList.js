@@ -1,15 +1,21 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import fetchMessages from "../store/actions/message";
+import {DeleteMessage} from "../store/actions/message";
 import jwtDecode from "jwt-decode";
 import RenderMessages from "../components/renderMessage";
 
 class MessagesList extends Component{
+    constructor(props){
+        super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
     componentDidMount(){
         this.props.fetchMessages(jwtDecode(localStorage.jwtToken)._id);
     }
     handleDelete(id){
-
+        this.props.DeleteMessage(jwtDecode(localStorage.jwtToken)._id,id);
+        this.props.history.push("/");
     }
     render(){
         const {messages} = this.props;
@@ -18,6 +24,7 @@ class MessagesList extends Component{
             return (
                 <RenderMessages
                     key={m._id}
+                    mId={m._id}
                     date={m.createdAt}
                     text={m.body}
                     username={m.user.username}
@@ -36,4 +43,4 @@ class MessagesList extends Component{
 function mapStateToProps(state){
     return {messages : state.messages,}
 }
-export default connect(mapStateToProps,{fetchMessages})(MessagesList);
+export default connect(mapStateToProps,{fetchMessages,DeleteMessage})(MessagesList);

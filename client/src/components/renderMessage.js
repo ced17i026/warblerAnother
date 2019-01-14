@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import {Link} from "react-router-dom";
 import DefaultImg from "../images/warbler-logo.png";
 
-export default ({date,text,username,key,Authorize})=>(
+export default ({date,text,username,Authorize,handleDelete,mId})=>(
     <div className="messageArea">
         <img src={DefaultImg} alt={username} height="100" width="100" className="profileImg"></img>
         <div>
@@ -15,7 +15,7 @@ export default ({date,text,username,key,Authorize})=>(
             </span>
             <p>{text}</p>
             {Authorize &&
-                <button className="btn btn-danger" onClick={()=>this.props.handleDelete(key)}>Delete</button>
+                <button className="btn btn-danger" onClick={()=>handleDelete(mId)}>Delete</button>
             }
         </div>
     </div>
