@@ -28,8 +28,7 @@ export const DeleteMessage = (userid,id)=>{
     return dispatch=>{
         return apiCall("delete",`http://localhost:3001/api/user/${userid}/message/${id}`)
             .then(res=>{
-                console.log(res);
-                dispatch(removeMessage(res.id));
+                dispatch(removeMessage(res._id));
             })
             .catch(err=>{
                 dispatch(addError(err));
