@@ -15,7 +15,6 @@ class MessagesList extends Component{
     }
     handleDelete(id){
         this.props.DeleteMessage(jwtDecode(localStorage.jwtToken)._id,id);
-        this.props.history.push("/");
     }
     render(){
         const {messages} = this.props;

@@ -26,13 +26,14 @@ export const AddNewMessage = (message)=>()=>{
 }
 export const DeleteMessage = (userid,id)=>{
     return dispatch=>{
-        return new Promise((resolve,reject)=>{
-            return apiCall("delete",`http://localhost:3001/api/user/${userid}/message/${id}`)
-                .then(res=>{
-                    resolve();
-                })
-                .catch(err=>{dispatch(addError(err))});
-        })
+        return apiCall("delete",`http://localhost:3001/api/user/${userid}/message/${id}`)
+            .then(res=>{
+                console.log(res);
+                dispatch(removeMessage(res.id));
+            })
+            .catch(err=>{
+                dispatch(addError(err));
+            });
     }
 }
 

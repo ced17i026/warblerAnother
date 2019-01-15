@@ -34,7 +34,7 @@ exports.deleteMessage = async function(req,res,next){
         //mongoose method findByIdAndRemove will not work here cause we have a pre function in our message Schema
         let message = await db.Message.findById(req.params.message_id);
         message.remove();
-        return;
+        return res.status(200).json(message);
     }catch(err){
         return next(err);
     }
