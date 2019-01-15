@@ -41,19 +41,19 @@ exports.singin = async function(req,res,next){
 exports.singup = async function(req,res,next){
     try{
         let user = await db.User.create(req.body);
-        let{email,username,profileImg} = user;
+        let{_id,email,username} = user;
         let token = jwt.sign(
             {
+                _id,
                 email,
                 username,
-                profileImg
             },
             process.env.SECRET_KEY
         );
         return res.status(200).json({
+            _id,
             email,
             username,
-            profileImg,
             token
         });
     }catch(err){

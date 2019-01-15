@@ -17,9 +17,9 @@ class MessagesList extends Component{
         this.props.DeleteMessage(jwtDecode(localStorage.jwtToken)._id,id);
     }
     render(){
-        const {messages} = this.props;
+        const {messages,currentUser} = this.props;
         let Messages = messages.map(m=>{
-            const Authorize = m.user.username === jwtDecode(localStorage.jwtToken).username;
+            const Authorize = m.user.username === currentUser.user.username;
             return (
                 <RenderMessages
                     key={m._id}
@@ -40,6 +40,9 @@ class MessagesList extends Component{
 }
 
 function mapStateToProps(state){
-    return {messages : state.messages,}
+    return {
+        messages : state.messages,
+        currentUser:state.currentUser,
+    }
 }
 export default connect(mapStateToProps,{fetchMessages,DeleteMessage})(MessagesList);
